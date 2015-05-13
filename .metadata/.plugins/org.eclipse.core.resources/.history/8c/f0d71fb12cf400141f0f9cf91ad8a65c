@@ -1,0 +1,51 @@
+package com.ctl.it.qa.simon.tools.steps.user;
+
+import javafx.scene.control.Alert;
+import net.thucydides.core.annotations.Step;
+
+
+import com.ctl.it.qa.simon.tools.pages.common.SiMONHomePage;
+import com.ctl.it.qa.simon.tools.pages.common.SiMONLoginPage;
+import com.ctl.it.qa.simon.tools.steps.SimonSteps;
+
+@SuppressWarnings("serial")
+public class UserSteps extends SimonSteps {
+	
+    
+    SiMONLoginPage SiMONLoginPage;
+    SiMONHomePage SiMONHomePage;
+    
+	public UserSteps() {
+		initialize();
+	}   
+       
+
+    
+    
+    //===================================================
+    @Step
+    public void is_on_simon_login_page() {   	
+    	SiMONLoginPage.openAt(envData.getField("url"));
+    	SiMONLoginPage.maximize();    	
+    	SiMONLoginPage.isExist();
+
+    }
+    
+    @Step
+    public void logs_in_Simon_as(String userType) {
+    	SiMONLoginPage.enterCredentials(userType);
+    	SiMONLoginPage.clickLogin();
+    }
+        
+    @Step
+    public void Verify_Error_Message(String MessageNameFromDataXML)
+    {    	
+    	if(MessageNameFromDataXML.toLowerCase().equals("invalid user")||MessageNameFromDataXML.toLowerCase().equals("invalid password")) 
+    		SiMONLoginPage.VerifyErrorMessage("InvalidUsernameOrPWD");
+    }
+    
+    public void is_on_simon_home_page(){
+    	SiMONHomePage.isExist();
+    }
+    
+}

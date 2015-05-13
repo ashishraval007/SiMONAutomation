@@ -1,0 +1,11 @@
+package com.ctl.it.qa.seleniumframework.KWDframework;
+
+import cucumber.api.java.Before;
+
+public class StepDefinition {
+	
+	@Before
+	public void beforeEveryScenario() {
+		
+	}
+}

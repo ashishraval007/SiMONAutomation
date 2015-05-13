@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;SiMONLoginPage.java&apos; to &apos;SampleTools/src/main/java/com.ctl.it.qa.sfa.tools.pages.common&apos;&#x0D;&#x0A;- Original project: &apos;SampleTools&apos;&#x0D;&#x0A;- Destination element: &apos;SampleTools/src/main/java/com.ctl.it.qa.sfa.tools.pages.common&apos;&#x0D;&#x0A;- Original element: &apos;com.ctl.it.qa.sfa.tools.pages.common.SiMONLoginPage.java&apos;" description="Copy compilation unit" destination="/src\/main\/java&lt;com.ctl.it.qa.sfa.tools.pages.common" element1="/src\/main\/java&lt;com.ctl.it.qa.sfa.tools.pages.common{SiMONLoginPage.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1430323325603" units="1" version="1.0"/>
+</session>

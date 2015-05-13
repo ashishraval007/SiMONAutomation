@@ -1,0 +1,84 @@
+package com.ctl.it.qa.sfa.tools.steps.user;
+
+import javafx.scene.control.Alert;
+import net.thucydides.core.annotations.Step;
+
+import com.ctl.it.qa.sfa.tools.steps.SfaSteps;
+import com.ctl.it.qa.simon.tools.pages.common.AllTabsPage;
+import com.ctl.it.qa.simon.tools.pages.common.HomePage;
+import com.ctl.it.qa.simon.tools.pages.common.LoginPage;
+import com.ctl.it.qa.simon.tools.pages.common.SiMONHomePage;
+import com.ctl.it.qa.simon.tools.pages.common.SiMONLoginPage;
+
+@SuppressWarnings("serial")
+public class UserSteps extends SfaSteps {
+	
+    LoginPage loginPage;
+    HomePage homePage;
+    AllTabsPage allTabsPage;
+    SiMONLoginPage SiMONLoginPage;
+    SiMONHomePage SiMONHomePage;
+    
+	public UserSteps() {
+		initialize();
+	}
+
+    @Step
+    public void logs_in_as(String userType) {
+        loginPage.enterCredentials(userType);
+        loginPage.clickLogin();
+    }
+
+    @Step
+    public void is_in_sfa_login_page() {
+        loginPage.openAt(envData.getField("url"));
+        loginPage.maximize();
+    	loginPage.isExist();
+    	
+    }
+       
+    @Step
+    public void should_be_on_home_page() {
+    	homePage.isExist();
+    }
+    
+    @Step
+    public void navigates_to_all_tabs_page() {
+    	homePage.navigateToAllTabsPage();
+    	allTabsPage.isExist();
+    }
+    
+    @Step
+    public void navigates_to_page(String pageName) {
+    	navigates_to_all_tabs_page();
+    	allTabsPage.navigateToPage(pageName);
+    }
+    
+    
+    //===================================================
+    @Step
+    public void is_on_simon_login_page() {   	
+    	SiMONLoginPage.openAt(envData.getField("url"));
+    	SiMONLoginPage.maximize();    	
+    	SiMONLoginPage.isExist();
+
+    }
+    
+    @Step
+    public void logs_in_Simon_as(String userType) {
+    	SiMONLoginPage.enterCredentials(userType);
+    	SiMONLoginPage.clickLogin();
+    }
+        
+    @Step
+    public void Verify_Error_Message(String MessageNameFromDataXML)
+    {    	
+    	if(MessageNameFromDataXML.toLowerCase().equals("invalid user")||MessageNameFromDataXML.toLowerCase().equals("invalid password")) 
+    		SiMONLoginPage.VerifyErrorMessage("InvalidUsernameOrPWD");
+    }
+    
+    public void is_on_simon_home_page(){
+    	SiMONHomePage.isExist();
+    }
+    
+}

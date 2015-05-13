@@ -1,0 +1,51 @@
+package com.ctl.it.qa.simon.tools.pages.common;
+
+
+
+import static org.hamcrest.MatcherAssert.assertThat;  
+import net.serenitybdd.core.annotations.findby.FindBy;
+import net.serenitybdd.core.pages.WebElementFacade;
+
+import com.ctl.it.qa.simon.tools.pages.SfaPage;
+import com.ctl.it.qa.staf.AutoPopulate;
+import com.ctl.it.qa.staf.xml.reader.IntDataContainer;
+
+public class LoginPage extends SfaPage {
+
+	private static IntDataContainer data;
+	private AutoPopulate autoPopulate = new AutoPopulate();
+
+	@FindBy(xpath = "//input[@name='userName']")
+	public WebElementFacade tbx_usernameSIMON; 
+	
+	@FindBy(id = "username")
+	public WebElementFacade tbx_username;
+
+	@FindBy(id = "password")
+	public WebElementFacade tbx_password;
+
+	@FindBy(id = "Login")
+	public WebElementFacade btn_logInToSalesforce;
+	
+	public LoginPage() {
+		initialize();
+		data = envData.getContainer(this.getClass().getSimpleName());
+	}
+	
+	public void isExist() {
+		assertThat("User is not in Login Page", btn_logInToSalesforce.isPresent());
+	}
+
+	public void enterCredentials(String userType) {
+		autoPopulate.populateValues(this, data.getContainer(userType).getMandatoryFields());
+	}
+
+	public void clickLogin() {
+		btn_logInToSalesforce.click();
+	}
+
+	@Override
+	public IntDataContainer getData() {
+		return data;
+	}
+}

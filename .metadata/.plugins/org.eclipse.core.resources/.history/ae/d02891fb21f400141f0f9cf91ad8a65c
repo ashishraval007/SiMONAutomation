@@ -1,0 +1,32 @@
+package com.ctl.it.qa.simon.tools.pages.common;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+
+import com.ctl.it.qa.simon.tools.pages.SfaPage;
+import com.ctl.it.qa.staf.xml.reader.IntDataContainer;
+
+import net.serenitybdd.core.annotations.findby.FindBy;
+import net.serenitybdd.core.pages.WebElementFacade;
+
+public class HomePage extends SfaPage {
+
+	@FindBy(xpath="//a[@title = 'Home Tab - Selected']")
+	public WebElementFacade tab_home;
+	
+	@FindBy(css="img[title = 'All Tabs']")
+	public WebElementFacade img_allTabs;
+	
+	public void isExist() { 
+		assertThat("User is not in Home Page", tab_home.isPresent());
+	}
+	
+	public void navigateToAllTabsPage() {
+		img_allTabs.click();
+	}
+
+	@Override
+	public IntDataContainer getData() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}

@@ -1,0 +1,11 @@
+1430938693511	Rename package 'com.ctl.it.qa.sfa.tools.pages'
+1430938711529	Rename package 'com.ctl.it.qa.sfa.tools.steps.user'
+1430938722465	Rename package 'com.ctl.it.qa.sfa.tools.steps'
+1430938752137	Rename type 'SfaPage'
+1430938778470	Rename type 'SfaSteps'
+1430942998921	Delete elements
+1431098940330	Copy package
+1431098948941	Delete element
+1431098971062	Copy compilation unit
+1431099191948	Rename type 'SiMONLoginPage'
+1431099220371	Rename type 'SiMONHomePage'

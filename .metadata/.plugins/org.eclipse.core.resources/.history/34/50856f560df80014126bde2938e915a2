@@ -1,0 +1,136 @@
+package com.ctl.it.qa.simon.tools.pages.common;
+
+
+import net.serenitybdd.core.SerenityReports;
+import static org.hamcrest.MatcherAssert.assertThat;
+
+import org.openqa.selenium.By;
+import org.w3c.dom.Element;
+import org.yecht.Data;
+
+import net.serenitybdd.core.annotations.findby.FindBy;
+import net.serenitybdd.core.pages.WebElementFacade;
+import net.serenitybdd.cucumber.SerenityReporter;
+
+import com.ctl.it.qa.simon.tools.pages.SimonPage;
+import com.ctl.it.qa.staf.AutoPopulate;
+import com.ctl.it.qa.staf.xml.reader.IntDataContainer;
+import com.gargoylesoftware.htmlunit.xml.XmlUtil;
+
+
+
+public class HomePage extends SimonPage{ 
+	
+	private static IntDataContainer data;	
+	private AutoPopulate autoPopulate = new AutoPopulate();
+	
+	//Logout button
+	@FindBy(id = "logout-select")
+	public WebElementFacade img_Logout;	
+	
+	//ERROR DIV
+	@FindBy(className = "error")
+	public WebElementFacade div_ErrorMessage;
+		
+	public HomePage(){
+		initialize();
+		data = envData.getContainer(this.getClass().getSimpleName());
+	}
+	
+	public void isExist(){
+		String MainWindowHwnd = SimonPage.MainWindowHnd;
+		getDriver().switchTo().window(MainWindowHwnd);
+		assertThat("User is NOT on Home Page", img_Logout.isPresent());	
+	}
+     	
+	public void VerifyErrorMessage(String MessageIdFromDataXML){
+		
+		
+		assertThat("Error message NOT found on login page :(",div_ErrorMessage.isPresent());		
+		
+		String ErrorMessage = envData.getContainer("Messages").getField("InvalidUsernameOrPWD1");
+		System.out.println("ERROR MESSAGE IS " + ErrorMessage);
+		
+		if(envData.getContainer("Messages").getField("InvalidUsernameOrPWD1").equals(div_ErrorMessage.getText()))
+		{
+			System.out.println("---> ERROR MESSAGE FOUND");
+		}
+		else
+		{
+			System.out.println("---> ERROR NOT MESSAGE FOUND");	
+		}
+			
+		
+	}
+	
+	
+	
+	
+	public void createNewCustomer( )
+	{
+		
+		
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	@Override
+	public IntDataContainer getData() {
+		return data;
+	}
+	
+	
+}
+
+
+
+
+/*
+ public class LoginPage extends SimonPage {
+
+	private static IntDataContainer data;
+	private AutoPopulate autoPopulate = new AutoPopulate();
+
+	@FindBy(id = "username")
+	public WebElementFacade tbx_username;
+
+	@FindBy(id = "password")
+	public WebElementFacade tbx_password;
+
+	@FindBy(id = "Login")
+	public WebElementFacade btn_logInToSalesforce;
+	
+	public LoginPage() {
+		initialize();
+		data = envData.getContainer(this.getClass().getSimpleName());
+	}
+	
+	public void isExist() {
+		assertThat("User is not in Login Page", btn_logInToSalesforce.isPresent());
+	}
+
+	public void enterCredentials(String userType) {
+		autoPopulate.populateValues(this, data.getContainer(userType).getMandatoryFields());
+	}
+
+	public void clickLogin() {
+		btn_logInToSalesforce.click();
+	}
+
+	@Override
+	public IntDataContainer getData() {
+		return data;
+	}
+} 
+ * */
+ 

@@ -1,0 +1,12 @@
+package com.ctl.it.qa.simon.tools.steps;
+
+import com.ctl.it.qa.staf.Steps;
+
+@SuppressWarnings("serial")
+public abstract class SfaSteps extends Steps {
+	public void SfaSteps()
+	{
+	
+	
+	}
+}

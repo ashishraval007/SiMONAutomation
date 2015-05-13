@@ -1,0 +1,13 @@
+package com.ctl.it.qa.simon.tools.pages; 
+
+import org.openqa.jetty.jetty.servlet.AbstractSessionManager.Session;
+
+import com.ctl.it.qa.staf.Page;
+
+public abstract class SfaPage extends Page {
+
+	public static String MainWindowHnd;
+	
+		
+	
+}   

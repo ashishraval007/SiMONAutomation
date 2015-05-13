@@ -1,0 +1,14 @@
+package test;
+
+import com.appfoundation.automation.framework.BaseSeleniumTest;
+import com.appfoundation.automation.framework.BaseModel;
+import com.appfoundation.automation.util.XPathUtils;
+
+public class clsTestChild extends BaseModel {
+
+	public clsTestChild(BaseSeleniumTest test) {
+		super(test);
+	
+	}
+
+}

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<container name="root">
+
+	<container name="Environments">
+		
+		<container name="ITV1">				
+			<field name="url" value="http://10.3.217.27:10079/iRep/simonInit.htm"/>
+									
+			<container name="LoginPage">			
+			
+				<container name="Admin">
+					<field name="tbx_username" value="ramu.vairavan@centurylink.com.itv1" type="mandatory" />
+					<field name="tbx_password" value="Ramu1234" type="mandatory" />
+				</container>
+				
+				<!-- 1 invalid scenario -->
+				<container name="invalid">
+					<field name="tbx_username" value="INVALIDUSER" type="mandatory" />
+					<field name="tbx_password" value="somethingpwd" type="mandatory" />					
+					<field name="ddl_environment" value="DEPLOYI2" type="mandatory" />
+				</container>
+			
+				<!-- 2 valid scenario -->
+				<container name="valid">
+					<field name="tbx_username" value="aa93214" type="mandatory" />
+					<field name="tbx_password" value="Feb@20144444" type="mandatory" />					
+					<field name="ddl_environment" value="DEPLOYI2" type="mandatory" />
+				</container>	
+				
+				
+			</container>
+			
+			<container name="SiMONLoginPage">
+				
+				<!-- 1 invalid scenario -->
+				<container name="invalid">
+					<field name="tbx_username" value="INVALIDUSER" type="mandatory" />
+					<field name="tbx_password" value="somethingpwd" type="mandatory" />					
+					<field name="ddl_environment" value="DEPLOYI2" type="mandatory" />
+				</container>
+			
+				<!-- 2 valid scenario -->
+				<container name="valid">
+					<field name="tbx_username" value="aa93214" type="mandatory" />
+					<field name="tbx_password" value="Feb@20144444" type="mandatory" />					
+					<field name="ddl_environment" value="DEPLOYI2" type="mandatory" />
+				</container>			
+						
+			</container>		
+			
+			
+			<container name="CreateConsumerCustomer">
+			
+				<container name="CallerIdentification">
+					<field name="" value="" type="mandatory" />
+					<field name="" value="" type="mandatory" />
+					<field name="" value="" type="mandatory" />
+					<field name="" value="" type="mandatory" />
+					<field name="" value="" type="mandatory" />
+				</container>
+				<container name="SearchServiceAddress">
+					<field name="" value="" type="mandatory" />
+				</container>
+				
+			</container>
+					
+			<container name="Messages">
+				<field name='InvalidUsernameOrPWD' value='Message: Logon failure: unknown user name or bad password. ErrorNumber=2147023570'/>
+			</container>
+		</container>
+		
+		
+	<container name="ITV2">
+	
+	
+	
+	</container>	
+		
+	
+	<container name="DEPLOYI2">
+				
+			<field name="url" value="http://10.3.217.27:10079/iRep/simonInit.htm"></field>
+					
+			<container name="LoginPage">
+				<container name="valid">
+					<field name="tbx_username" value="ashish.raval"	type="mandatory" />
+					<field name="tbx_password" value="correctpwd" type="mandatory" />
+				</container>
+			</container>
+			
+			<container name="SiMONLoginPage">
+				<container name="invalid">
+					<field name="tbx_username" value="INVALIDUSER" type="mandatory" />
+					<field name="tbx_password" value="somethingpwd" type="mandatory" />					
+					<!-- <field name="lst_environment" value="DIPLOYI2" type="mandatory" /> -->
+				</container>
+			</container>
+				
+		
+		</container>
+	
+	
+	</container>
+	
+	
+	
+	<container name="CommonData">
+		
+		<container name="Messages">
+			<field name='InvalidUsernameOrPWD1' value='Message: Logon failure: unknown user name or bad password. ErrorNumber=2147023570'/>
+		
+		</container>
+	
+	
+	
+	</container>
+
+</container>

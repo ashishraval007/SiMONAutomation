@@ -1,0 +1,31 @@
+package com.ctl.it.qa.simon.tools.pages.common;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import net.serenitybdd.core.annotations.findby.FindBy;
+import net.serenitybdd.core.pages.WebElementFacade;
+
+import org.openqa.selenium.By;
+
+import com.ctl.it.qa.simon.tools.pages.SfaPage;
+import com.ctl.it.qa.staf.xml.reader.IntDataContainer;
+
+public class AllTabsPage extends SfaPage {
+	
+	@FindBy(xpath="//option[text()='All Tabs'][@selected='selected']")
+	public WebElementFacade ddl_allTabs;
+	
+	public void isExist() {
+		assertThat("User is not in All Tabs Page", ddl_allTabs.isPresent());
+	}
+
+	public void navigateToPage(String pageName) {
+		//WebElementFacade element = (WebElementFacade) getDriver().findElement(By.cssSelector("img[title = '" + pageName + "']"));
+		getDriver().findElement(By.cssSelector("img[title = '" + pageName + "']")).click();
+	}
+
+	@Override
+	public IntDataContainer getData() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}

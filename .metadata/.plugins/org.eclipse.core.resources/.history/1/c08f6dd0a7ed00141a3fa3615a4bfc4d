@@ -1,0 +1,56 @@
+package test;
+
+import java.sql.Driver;
+
+
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+
+public class clsTest  {
+            
+	
+
+    
+    public clsTest()
+    {
+    	//oTestChild = new clsTestChild(this);
+    	String temp="";
+    }
+    
+
+    public void func_test()
+    {    	
+    	
+    
+    	
+    	FirefoxDriver oBrowser = new FirefoxDriver();    
+        oBrowser.get("http://10.3.217.27:10079/iRep/simonInit.htm");
+        
+        //oBrowser.wait(1000);        
+        //oBrowser.findElement(By.xpath("//.[@id='userName']")).sendKeys("testing");
+        
+        System.out.println("test : " + oBrowser.findElements(By.tagName("input")).size()); 
+        
+    	
+    	
+    }
+	public static void main(String[] args) throws InterruptedException 
+	{
+		
+		
+		clsTest oBase = new clsTest();
+		oBase.func_test();
+
+		 
+		
+
+	}
+
+}
+
+
+
+
